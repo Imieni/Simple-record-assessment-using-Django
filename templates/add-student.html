@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %} Assessment - Add Student {% endblock %}
+{% block content %}
+
+          <div class="content-wrapper">
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Add Student</h4>
+                    <form class="forms-sample">
+                      <div class="form-group">
+                        <label for="name">Firstname</label>
+                        <input type="text" class="form-control" id="name" placeholder="Firstname">
+                      </div>
+                      <div class="form-group">
+                        <label for="name">Lastname</label>
+                        <input type="text" class="form-control" id="name" placeholder="Lastname">
+                      </div>
+                      <div class="form-group">
+                        <label for="studentid">Student ID</label>
+                        <input type="text" class="form-control" id="studentid" placeholder="Student ID">
+                      </div>
+                      <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select class="form-control form-control" id="gender">
+                          <option>Select Gender</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="studentid">Date of Birth</label>
+                        <input type="text" class="form-control" id="studentid" placeholder="dd/mm/yyyy">
+                      </div>
+                      <div class="form-group">
+                        <label>File upload</label>
+                        <input type="file" name="img" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                          </span>
+                        </div>
+                      </div>
+                      <input type="submit" class="btn btn-primary mr-2" value="Add">
+                      
+                    </form>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <!-- content-wrapper ends -->
+{%endblock%}
+{%block js%}
+  <!-- Custom js for this page -->
+    <script src="{{url_for('static', filename='js/file-upload.js')}}"></script>
+    <script src="{{url_for('static', filename='js/typeahead.js')}}"></script>
+    <!-- End custom js for this page -->
+{%endblock%}

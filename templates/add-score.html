@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %} Assessment - View Students {% endblock %}
+{%block css%}
+<!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{url_for('static', filename='vendors/select2/select2.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='vendors/select2-bootstrap-theme/select2-bootstrap.min.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+    <!-- End plugin css for this page -->
+    <script type="text/javascript">
+      function get_student() {
+        var students = $('#getstud'). val();
+        var dataString = "students="+students;
+        $.ajax({
+          type: 'POST',
+          url:'getstudents.html',
+          data: dataString,
+          success: function(html){
+            $('#student_list').html(html);
+          }
+        });
+      }
+    </script>
+{%endblock%}
+{% block content %}
+
+          <div class="content-wrapper">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">View Students</h4>
+                    <div class="form-group-lg">
+                      <select class="form-control selectpicker" data-show-subtext="false" data-live-search="true" onchange="get_student()" id="getstud" style="width:100%">
+                        <option>Select a Student</option>
+                        <option value="AL" data-subtext="">Alabama</option>
+                        <option value="WY">Wyoming</option>
+                        <option value="AM">America</option>
+                        <option value="CA">Canada</option>
+                        <option value="RU">Russia</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- content-wrapper ends -->
+          <div class="form-group row" id="student_list"></div>
+{%endblock%}
+{%block js%}
+  <!-- Custom js for this page -->
+    <script src="{{url_for('static', filename='vendors/select2/select2.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/select2.js')}}"></script>
+    <!-- End custom js for this page -->
+{%endblock%}

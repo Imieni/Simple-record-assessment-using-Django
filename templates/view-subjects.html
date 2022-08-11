@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Assessment - View Subjects {% endblock %}
+{% block content %}
+
+          <div class="content-wrapper">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">View Subjects</h4>
+                    <a href="{{url_for('navlinks', linkname='add-subject')}}" class="btn btn-primary float-right">Add Subject</a>
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th> Subjects </th>
+                            <th> Actions </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td> Mathematics </td>
+                            <td>
+                              <a href="" class="btn btn-primary">View/Edit</a>
+                              <a href="" class="btn btn-primary">Delete</a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <!-- content-wrapper ends -->
+{%endblock%}
